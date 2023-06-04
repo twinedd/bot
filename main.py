@@ -2,7 +2,7 @@ import discord
 import random
 from discord.ext import commands
 import словать as s
-
+list_ = ['images/mem1.jpg','images/mem2.jpg','images/mem3.jpg']
 token = ''
 
 intents = discord.Intents.default()
@@ -35,7 +35,8 @@ async def sum(ctx, num1, *, num2):
 
 @bot.command()
 async def mem(ctx):
-    with open('images/mem1.jpg', 'rb') as f:
+    file1 = list_[random.randint(1,3) - 1]
+    with open(file1, 'rb') as f:
         # В переменную кладем файл, который преобразуется в файл библиотеки Discord!
         picture = discord.File(f)
    # Можем передавать файл как параметр!
