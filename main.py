@@ -32,4 +32,14 @@ async def ping(ctx, user_id):
 async def sum(ctx, num1, *, num2):
     sum_ = int(num1) + int(num2)
     await ctx.reply(str(sum_))
+
+@bot.command()
+async def mem(ctx):
+    with open('images/mem1.jpg', 'rb') as f:
+        # В переменную кладем файл, который преобразуется в файл библиотеки Discord!
+        picture = discord.File(f)
+   # Можем передавать файл как параметр!
+    await ctx.send(file=picture)
+
+
 bot.run(token)
