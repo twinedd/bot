@@ -35,11 +35,19 @@ async def sum(ctx, num1, *, num2):
 
 @bot.command()
 async def mem(ctx):
-    file1 = list_[random.randint(1,3) - 1]
+    x = random.randint(1,6)
+    if x == 1 or x == 2 or x == 3:
+        file1 = 0
+        await ctx.send('обычный мем')
+    elif x == 4 or x == 5:
+        await ctx.send('средний мем')
+        file1 = 1
+    elif x == 6:
+        await ctx.send('редкий мем')
+        file1 = 2
+        
     with open(file1, 'rb') as f:
-        # В переменную кладем файл, который преобразуется в файл библиотеки Discord!
         picture = discord.File(f)
-   # Можем передавать файл как параметр!
     await ctx.send(file=picture)
 
 
